@@ -1,0 +1,221 @@
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 42px;
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.left-column {
+  margin: 0 auto;
+  width: 339px;
+  height: 238px;
+  font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #0D0D0D;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.right-column {
+  margin: 0 auto;
+  width: 339px;
+  height: 170px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+h1, p {
+  font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #0D0D0D;
+  letter-spacing: -0.5px;
+  line-height: 17px;
+}
+
+h1 {
+  margin: 0 0 32px 0;
+}
+
+p {
+  margin: 0 0 16px 0;
+  width: 350px;
+}
+
+p:last-child {
+  margin: 0;
+}
+
+a, a:visited {
+  font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #0D0D0D;
+  opacity: 0.4;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+a:hover {
+  transform: scale(0.9) !important;
+  color: #0D0D0D !important;
+}
+
+.punctuation {
+  opacity: 0.3;
+}
+
+.two-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 128px;
+}
+
+.projects-section {
+  width: 150px;
+  height: 170px;
+  font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(0, 0, 0, 0.4);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+
+.projects-section h2 {
+  font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #0D0D0D;
+  letter-spacing: -0.5px;
+  line-height: 17px;
+  margin: 0 0 17px 0;
+  opacity: 0.4;
+}
+
+.projects-section p {
+  font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #0D0D0D;
+  letter-spacing: -0.5px;
+  line-height: 17px;
+  width: auto;
+  margin: 0;
+}
+
+.projects-section p:nth-child(6),
+.projects-section p:nth-child(7),
+.projects-section p:nth-child(8) {
+  opacity: 0.2;
+}
+
+
+.projects-section p:nth-child(7) {
+  margin-bottom: 17px;
+}
+
+.contact-section {
+  width: 102px;
+  height: 85px;
+  font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(13, 13, 13, 0.4);
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  align-self: flex-start;
+}
+
+.contact-section p:first-child {
+  margin-bottom: 17px;
+  opacity: 0.4;
+}
+
+.link-icon {
+  width: 8px;
+  height: 8px;
+  margin-left: 1px;
+  margin-top: 0.4px;
+  opacity: 1;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.projects-section p:hover .link-icon {
+  transform: scale(0.9);
+}
+
+.contact-section p {
+  font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #0D0D0D;
+  letter-spacing: -0.5px;
+  line-height: 17px;
+  width: 400px;
+  margin: 0;
+}
+
+.projects-section p:has(.soon) {
+  opacity: 0.3;
+}
+
+.soon {
+  opacity: 1;
+}
+
+.projects-section a {
+  opacity: 1;
+  transition: transform 0.2s ease;
+}
+
+.projects-section a:hover {
+  transform: scale(0.9) !important;
+  color: #0D0D0D !important;
+}
+
+.contact-section a {
+  opacity: 1;
+  transition: transform 0.2s ease;
+}
+
+.contact-section a:hover {
+  transform: scale(0.9) !important;
+  color: #0D0D0D !important;
+}
