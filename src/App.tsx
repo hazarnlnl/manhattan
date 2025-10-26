@@ -17,7 +17,7 @@ function HomePage() {
           <div className="projects-section">
             <h2>projects</h2>
             <p><Link to="/social">social</Link> <img src="/icon_link.svg" alt="link" className="link-icon" /></p>
-            <p><Link to="/strike">strike</Link> <img src="/icon_link.svg" alt="link" className="link-icon" /></p>
+            <p><Link to="/strike">haul</Link> <img src="/icon_link.svg" alt="link" className="link-icon" /></p>
             <p><a href="https://trycargo.netlify.app" target="_blank" rel="noopener noreferrer">cargo</a> <img src="/icon_link.svg" alt="link" className="link-icon" /></p>
             <p><a href="https://trycargo.netlify.app" target="_blank" rel="noopener noreferrer">memoria</a> <img src="/icon_link.svg" alt="link" className="link-icon" /></p>
             <p>mode (soon)</p>
@@ -42,7 +42,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/social" element={<ProjectPage title="social" content="A social platform for connecting creators through shared interests and experiences." images={["/social/tags2.mp4", "/social/pic.png", "/social/Twitter post - 1.png", "/social/Twitter post - 2.png", "/social/Twitter post - 3.png"]} />} />
-        <Route path="/strike" element={<ProjectPage title="strike" content="A productivity app that helps you focus and get things done with smart task management." images={["/pic.png"]} />} />
+        <Route path="/strike" element={<ProjectPage title="haul" content="A productivity app that helps you focus and get things done with smart task management." images={["/pic.png"]} />} />
       </Routes>
     </Router>
   );
