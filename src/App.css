@@ -2,60 +2,150 @@
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  background-color: #0F0F0F;
+  color: #AFAFAF;
 }
 
 .container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: flex-start;
-  padding: 0px;
-  gap: 42px;
-  position: absolute;
+  padding: 24px;
+  gap: 128px;
+  position: static;
   width: fit-content;
   height: fit-content;
-  left: 50%;
-  top: 45%;
-  transform: translate(-50%, -50%);
 }
 
 .left-column {
-  margin: 0 auto;
+  margin: 0;
   width: 339px;
-  height: 238px;
+  height: auto;
   font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: #0D0D0D;
+  color: #AFAFAF;
   flex: none;
   order: 0;
-  align-self: stretch;
+  align-self: flex-start;
   flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.brand p {
+  font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #AFAFAF;
+  letter-spacing: -0.5px;
+  line-height: 17px;
+  margin: 0;
+  opacity: 0.4;
+}
+
+.brand .brand-button {
+  font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #AFAFAF;
+  letter-spacing: -0.5px;
+  line-height: 17px;
+  margin: 0;
+  opacity: 0.4;
+  text-decoration: none;
 }
 
 .right-column {
-  margin: 0 auto;
-  width: 339px;
-  height: 170px;
+  margin: 0;
+  width: 525px;
+  height: auto;
   flex: none;
   order: 1;
-  align-self: stretch;
+  align-self: flex-start;
   flex-grow: 0;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: flex-start;
+  gap: 10px;
 }
 
 h1, p {
   font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #0D0D0D;
+  color: #AFAFAF;
   letter-spacing: -0.5px;
   line-height: 17px;
+}
+
+/* Apply Gelasio to the bio on the right column */
+.right-column p {
+  font-family: 'Gelasio', serif;
+  font-size: 20px;
+  line-height: 26px;
+  color: #AFAFAF;
+  width: 525px;
+}
+
+/* Bottom gallery for project routes */
+.bottom-gallery {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 60vh;
+  height: 400px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 0 12px 8px 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.bottom-gallery::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.bottom-gallery::before {
+  content: '';
+  flex: 0 0 12px;
+}
+
+.gallery-item {
+  height: 360px;
+  width: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  flex: 0 0 auto;
+  display: block;
+}
+
+/* Bio links (e.g., cargo, memoria) match bio font, full opacity, underlined */
+.right-column a,
+.right-column a:visited {
+  font-family: 'Gelasio', serif;
+  font-size: 20px;
+  line-height: 26px;
+  color: #AFAFAF;
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.right-column a:hover {
+  transform: none !important;
+  color: #AFAFAF !important;
+  text-decoration: underline;
+  opacity: 0.5;
 }
 
 h1 {
@@ -74,7 +164,7 @@ p:last-child {
 a, a:visited {
   font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
-  color: #0D0D0D;
+  color: #AFAFAF;
   opacity: 0.4;
   text-decoration: none;
   transition: transform 0.2s ease;
@@ -83,11 +173,20 @@ a, a:visited {
 
 a:hover {
   transform: scale(0.9) !important;
-  color: #0D0D0D !important;
+  color: #AFAFAF !important;
 }
 
 .punctuation {
   opacity: 0.3;
+}
+
+/* Bio punctuation should be full opacity */
+.right-column .punctuation {
+  opacity: 1;
+}
+
+.right-column .punctuation:hover {
+  opacity: 0.5;
 }
 
 .two-columns {
@@ -107,7 +206,7 @@ a:hover {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(175, 175, 175, 0.4);
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -118,10 +217,10 @@ a:hover {
   font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #0D0D0D;
+  color: #AFAFAF;
   letter-spacing: -0.5px;
   line-height: 17px;
-  margin: 0 0 17px 0;
+  margin: 0 0 4px 0;
   opacity: 0.4;
 }
 
@@ -129,7 +228,7 @@ a:hover {
   font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #0D0D0D;
+  color: #AFAFAF;
   letter-spacing: -0.5px;
   line-height: 17px;
   width: auto;
@@ -149,17 +248,18 @@ a:hover {
 
 .contact-section {
   width: 102px;
-  height: 85px;
+  height: auto;
   font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: rgba(13, 13, 13, 0.4);
+  color: rgba(175, 175, 175, 0.4);
   flex: none;
   order: 1;
   flex-grow: 0;
   align-self: flex-start;
+  margin-top: 120px;
 }
 
 .contact-section p:first-child {
@@ -172,7 +272,8 @@ a:hover {
   height: 8px;
   margin-left: 1px;
   margin-top: 0.4px;
-  opacity: 1;
+  opacity: 0.4;
+  filter: brightness(0) invert(1);
   vertical-align: middle;
   transition: transform 0.2s ease;
 }
@@ -185,7 +286,7 @@ a:hover {
   font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #0D0D0D;
+  color: #AFAFAF;
   letter-spacing: -0.5px;
   line-height: 17px;
   width: 400px;
@@ -207,7 +308,7 @@ a:hover {
 
 .projects-section a:hover {
   transform: scale(0.9) !important;
-  color: #0D0D0D !important;
+  color: #AFAFAF !important;
 }
 
 .contact-section a {
@@ -217,5 +318,5 @@ a:hover {
 
 .contact-section a:hover {
   transform: scale(0.9) !important;
-  color: #0D0D0D !important;
+  color: #AFAFAF !important;
 }
