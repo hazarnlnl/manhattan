@@ -87,8 +87,8 @@ h1, p {
 /* Apply Gelasio to the bio on the right column */
 .right-column p {
   font-family: 'Gelasio', serif;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 20px;
+  line-height: 26px;
   color: #AFAFAF;
   width: 565px;
 }
