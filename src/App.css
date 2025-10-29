@@ -62,7 +62,7 @@
 
 .right-column {
   margin: 0;
-  width: 525px;
+  width: 565px;
   height: auto;
   flex: none;
   order: 1;
@@ -90,7 +90,7 @@ h1, p {
   font-size: 20px;
   line-height: 26px;
   color: #AFAFAF;
-  width: 525px;
+  width: 565px;
 }
 
 /* Bottom gallery for project routes */
@@ -294,7 +294,7 @@ a:hover {
 }
 
 .projects-section p:has(.soon) {
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 .soon {
