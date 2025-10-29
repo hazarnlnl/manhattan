@@ -12,7 +12,7 @@ function Layout() {
           <p><a href="https://trycargo.netlify.app" target="_blank" rel="noopener noreferrer">cargo</a> <img src="/icon_link.svg" alt="link" className="link-icon" /></p>
           <p><a href="https://trycargo.netlify.app" target="_blank" rel="noopener noreferrer">memoria</a> <img src="/icon_link.svg" alt="link" className="link-icon" /></p>
           <p><Link to="/social">social</Link> <img src="/icon_link2.svg" alt="link" className="link-icon" /></p>
-          <p>haul (soon)</p>
+          <p>haul <span className="soon">(soon)</span></p>
           <p>mode (soon)</p>
           <p>derine (soon)</p>
           <p>interactions (soon)</p>
