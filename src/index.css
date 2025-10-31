@@ -25,6 +25,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #0F0F0F;
+  overflow-x: hidden; /* prevent right-side overflow */
 }
 
 h1 {
@@ -54,4 +55,14 @@ button:focus-visible {
 /* Ensure page background stays dark beyond content bounds */
 html, body, #root {
   background-color: #0F0F0F;
+}
+
+/* Hide vertical scrollbar globally but keep scrolling */
+html, body {
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }

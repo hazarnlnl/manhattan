@@ -1,8 +1,51 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function Layout() {
+  const location = useLocation();
+  const isProjectView = location.pathname !== '/';
+  useEffect(() => {
+    const socialMedia: string[] = [
+      '/social/tags2.mp4',
+      '/social/pic.png',
+      '/social/Twitter post - 1.png',
+      '/social/Twitter post - 2.png',
+      '/social/Twitter post - 3.png'
+    ];
+
+    const disposers: Array<() => void> = [];
+
+    socialMedia.forEach((url) => {
+      const isVideo = url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.mov');
+      if (isVideo) {
+        const video = document.createElement('video');
+        video.src = url;
+        video.preload = 'auto';
+        video.muted = true;
+        // Trigger load without attaching to DOM
+        try { video.load(); } catch {}
+        disposers.push(() => {
+          video.removeAttribute('src');
+          try { video.load(); } catch {}
+        });
+      } else {
+        const img = new Image();
+        img.decoding = 'async';
+        img.loading = 'eager';
+        img.src = url;
+        disposers.push(() => {
+          img.src = '';
+        });
+      }
+    });
+
+    return () => {
+      disposers.forEach((dispose) => dispose());
+    };
+  }, []);
+
   return (
-    <div className="container">
+    <div className={`container ${isProjectView ? 'project-view' : ''}`}>
       <div className="left-column">
         <div className="brand">
           <Link to="/" className="brand-button">hazar nl</Link>

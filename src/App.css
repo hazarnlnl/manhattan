@@ -11,11 +11,14 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 24px;
-  gap: 128px;
+  padding: clamp(16px, 2vw, 24px);
+  gap: clamp(48px, 8vw, 128px);
   position: static;
-  width: fit-content;
+  width: 100%;
   height: fit-content;
+  box-sizing: border-box;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .left-column {
@@ -35,6 +38,48 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: sticky;
+  top: clamp(16px, 2vw, 24px);
+}
+
+/* Desktop project pages: pin left column, shift content so right scrolls */
+@media (min-width: 821px) {
+  .container.project-view {
+    /* add left padding equal to base padding + left column width + inter-column gap */
+    padding-left: calc(clamp(16px, 2vw, 24px) + 339px + clamp(48px, 8vw, 128px));
+  }
+
+  .container.project-view .left-column {
+    position: fixed;
+    top: clamp(16px, 2vw, 24px);
+    left: clamp(16px, 2vw, 24px);
+    z-index: 2;
+  }
+
+  /* Project pages: use Inter for right-column text/links */
+  .container.project-view .right-column p {
+    font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .container.project-view .right-column a,
+  .container.project-view .right-column a:visited {
+    font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .container.project-view .right-column h1 {
+    font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    opacity: 1;
+    margin: 0; /* flush with date */
+  }
+
+  /* Project pages: add top padding to right content only */
+  .container.project-view .right-column {
+    padding-top: 184px;
+  }
 }
 
 .brand p {
@@ -62,17 +107,20 @@
 
 .right-column {
   margin: 0;
-  width: 565px;
+  width: auto;
+  max-width: 565px;
+  min-width: 360px;
   height: auto;
   flex: none;
   order: 1;
   align-self: flex-start;
-  flex-grow: 0;
+  flex: 1 1 420px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 10px;
+  padding-right: 20px; /* ensure right-side breathing room */
 }
 
 h1, p {
@@ -87,10 +135,29 @@ h1, p {
 /* Apply Gelasio to the bio on the right column */
 .right-column p {
   font-family: 'Gelasio', serif;
-  font-size: 20px;
-  line-height: 26px;
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: clamp(22px, 2.2vw, 26px);
   color: #AFAFAF;
-  width: 565px;
+  width: 100%;
+}
+
+/* Project media stacked in right column */
+.right-column .project-media {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  display: block;
+  margin-top: 12px;
+}
+
+/* Project date under header (applies on project pages only) */
+.container.project-view .right-column .project-date {
+  font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  opacity: 0.6;
+  margin: 0 0 24px 0; /* group with header, separate from body */
 }
 
 /* Bottom gallery for project routes */
@@ -134,8 +201,8 @@ h1, p {
 .right-column a,
 .right-column a:visited {
   font-family: 'Gelasio', serif;
-  font-size: 20px;
-  line-height: 26px;
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: clamp(22px, 2.2vw, 26px);
   color: #AFAFAF;
   opacity: 1;
   text-decoration: underline;
@@ -319,4 +386,58 @@ a:hover {
 .contact-section a:hover {
   transform: scale(0.9) !important;
   color: #AFAFAF !important;
+}
+
+/* Mobile layout: right content at bottom, 20px margins, fill width */
+@media (max-width: 820px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+    gap: 200px; /* wider space between top (left) and bottom (right) sections */
+  }
+
+  .left-column {
+    position: static;
+    top: auto;
+    width: 100%;
+  }
+
+  .right-column {
+    max-width: none;
+    min-width: 0;
+    width: 100%;
+    margin-top: 0; /* rely on container gap for spacing */
+  }
+
+  /* Home page only: make bottom (right-column) text 20px */
+  .home-bottom p {
+    font-size: 20px !important;
+    line-height: 26px !important;
+  }
+  .home-bottom a,
+  .home-bottom a:visited {
+    font-size: 20px !important;
+    line-height: 26px !important;
+  }
+
+  .right-column .project-media {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  /* Project page (mobile): use Inter for text and links */
+  .container.project-view .right-column p,
+  .container.project-view .right-column a,
+  .container.project-view .right-column a:visited {
+    font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  }
+
+  /* Project page (mobile): header/date closer */
+  .container.project-view .right-column h1 {
+    font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    margin: 0;
+  }
+  .container.project-view .right-column .project-date {
+    margin: 0 0 12px 0;
+  }
 }
