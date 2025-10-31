@@ -48,7 +48,7 @@ function Layout() {
     <div className={`container ${isProjectView ? 'project-view' : ''}`}>
       <div className="left-column">
         <div className="brand">
-          <Link to="/" className="brand-button">hazar nl</Link>
+          <Link to="/" className="brand-button">{isProjectView ? 'go back' : 'hazar nl'}</Link>
         </div>
         <div className="projects-section">
           <h2>projects:</h2>
