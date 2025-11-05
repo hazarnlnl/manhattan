@@ -151,6 +151,14 @@ h1, p {
   margin-top: 12px;
 }
 
+/* Smaller, borderless app icon when used as first media */
+.right-column .project-media.is-icon {
+  width: 64px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
 /* Project date under header (applies on project pages only) */
 .container.project-view .right-column .project-date {
   font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -197,7 +205,7 @@ h1, p {
   display: block;
 }
 
-/* Bio links (e.g., cargo, memoria) match bio font, full opacity, underlined */
+/* Bio links (e.g., cargo) match bio font, full opacity, underlined */
 .right-column a,
 .right-column a:visited {
   font-family: 'Gelasio', serif;

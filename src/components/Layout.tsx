@@ -6,6 +6,7 @@ function Layout() {
   const isProjectView = location.pathname !== '/';
   useEffect(() => {
     const socialMedia: string[] = [
+      '/social/icon2.png',
       '/social/tags2.mp4',
       '/social/pic.png',
       '/social/Twitter post - 1.png',
@@ -13,9 +14,25 @@ function Layout() {
       '/social/Twitter post - 3.png'
     ];
 
+    const strideMedia: string[] = [
+      '/stride/case_image.png',
+      '/stride/project1_img1.png',
+      '/stride/project1_img2.png',
+      '/stride/project1_img3.png',
+      '/stride/project1_img4.png',
+      '/stride/project1_img5.png',
+      '/stride/project1_img6.png'
+    ];
+
+    const modeMedia: string[] = [
+      '/mode/1.png',
+      '/mode/2.png',
+      '/mode/3.png'
+    ];
+
     const disposers: Array<() => void> = [];
 
-    socialMedia.forEach((url) => {
+    [...socialMedia, ...strideMedia, ...modeMedia].forEach((url) => {
       const isVideo = url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.mov');
       if (isVideo) {
         const video = document.createElement('video');
@@ -53,10 +70,10 @@ function Layout() {
         <div className="projects-section">
           <h2>projects:</h2>
           <p><a href="https://trycargo.netlify.app" target="_blank" rel="noopener noreferrer">cargo</a> <img src="/icon_link.svg" alt="link" className="link-icon" /></p>
-          <p><a href="https://trycargo.netlify.app" target="_blank" rel="noopener noreferrer">memoria</a> <img src="/icon_link.svg" alt="link" className="link-icon" /></p>
           <p><Link to="/social">social</Link> <img src="/icon_link2.svg" alt="link" className="link-icon" /></p>
+          <p><Link to="/stride">stride</Link> <img src="/icon_link2.svg" alt="link" className="link-icon" /></p>
+          <p><Link to="/mode">mode</Link> <img src="/icon_link2.svg" alt="link" className="link-icon" /></p>
           <p>haul <span className="soon">(soon)</span></p>
-          <p>mode (soon)</p>
           <p>derine (soon)</p>
           <p>interactions (soon)</p>
         </div>
