@@ -20,10 +20,20 @@ a:hover {
   color: #535bf2;
 }
 
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 body {
   margin: 0;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  height: 100%;
+  width: 100%;
   background-color: #0F0F0F;
   overflow-x: hidden; /* prevent right-side overflow */
 }
@@ -40,7 +50,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #0F0F0F;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -55,6 +65,12 @@ button:focus-visible {
 /* Ensure page background stays dark beyond content bounds */
 html, body, #root {
   background-color: #0F0F0F;
+  background: #0F0F0F;
+}
+
+body {
+  background: #0F0F0F !important;
+  background-color: #0F0F0F !important;
 }
 
 /* Hide vertical scrollbar globally but keep scrolling */

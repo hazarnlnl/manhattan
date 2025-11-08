@@ -1,9 +1,54 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function Layout() {
   const location = useLocation();
-  const isProjectView = location.pathname !== '/';
+  const isProjectView = location.pathname === '/projects';
+  const [activeProject, setActiveProject] = useState<string | null>(null);
+  
+  useEffect(() => {
+    if (!isProjectView) return;
+    
+    const projects = ['social', 'stride', 'mode'];
+    
+    const handleScroll = () => {
+      const viewportTop = 0;
+      const viewportBottom = window.innerHeight;
+      let activeProject: string | null = null;
+      
+      for (const project of projects) {
+        const projectSection = document.querySelector(`.project-section[data-project="${project}"]`);
+        if (projectSection) {
+          const rect = projectSection.getBoundingClientRect();
+          // Check if any part of the project section is visible in viewport
+          if (rect.bottom > viewportTop && rect.top < viewportBottom) {
+            activeProject = project;
+            break; // Use first visible project
+          }
+        }
+      }
+      
+      setActiveProject(activeProject);
+    };
+    
+    // Use requestAnimationFrame for smoother updates
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // Check after a short delay to ensure DOM is ready
+    setTimeout(handleScroll, 100);
+    
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [isProjectView]);
   useEffect(() => {
     const socialMedia: string[] = [
       '/social/icon2.png',
@@ -68,14 +113,51 @@ function Layout() {
           <Link to="/" className="brand-button">{isProjectView ? 'go back' : 'hazar nl'}</Link>
         </div>
         <div className="projects-section">
-          <h2>projects:</h2>
-          <p><a href="https://trycargo.netlify.app" target="_blank" rel="noopener noreferrer">cargo</a> <img src="/icon_link.svg" alt="link" className="link-icon" /></p>
-          <p><Link to="/social">social</Link> <img src="/icon_link2.svg" alt="link" className="link-icon" /></p>
-          <p><Link to="/stride">stride</Link> <img src="/icon_link2.svg" alt="link" className="link-icon" /></p>
-          <p><Link to="/mode">mode</Link> <img src="/icon_link2.svg" alt="link" className="link-icon" /></p>
-          <p>haul <span className="soon">(soon)</span></p>
-          <p>derine (soon)</p>
-          <p>interactions (soon)</p>
+          {isProjectView ? (
+            <>
+              <p><a 
+                href="#project-social" 
+                className={`project-link ${activeProject === 'social' ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById('project-social');
+                  if (element) {
+                    const elementTop = element.getBoundingClientRect().top + window.scrollY;
+                    const offset = window.innerHeight / 3; // Position at 1/3 from top for better centering
+                    window.scrollTo({ top: elementTop - offset, behavior: 'smooth' });
+                  }
+                }}
+              >social</a></p>
+              <p><a 
+                href="#project-stride" 
+                className={`project-link ${activeProject === 'stride' ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById('project-stride');
+                  if (element) {
+                    const elementTop = element.getBoundingClientRect().top + window.scrollY;
+                    const offset = window.innerHeight / 3;
+                    window.scrollTo({ top: elementTop - offset, behavior: 'smooth' });
+                  }
+                }}
+              >stride</a></p>
+              <p><a 
+                href="#project-mode" 
+                className={`project-link ${activeProject === 'mode' ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById('project-mode');
+                  if (element) {
+                    const elementTop = element.getBoundingClientRect().top + window.scrollY;
+                    const offset = window.innerHeight / 3;
+                    window.scrollTo({ top: elementTop - offset, behavior: 'smooth' });
+                  }
+                }}
+              >mode</a></p>
+            </>
+          ) : (
+            <p><Link to="/projects">see work</Link> <img src="/icon_link2.svg" alt="link" className="link-icon" /></p>
+          )}
         </div>
 
         <div className="contact-section">
