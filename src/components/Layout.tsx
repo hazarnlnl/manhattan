@@ -51,12 +51,10 @@ function Layout() {
   }, [isProjectView]);
   useEffect(() => {
     const socialMedia: string[] = [
-      '/social/icon2.png',
-      '/social/tags2.mp4',
-      '/social/pic.png',
-      '/social/Twitter post - 1.png',
-      '/social/Twitter post - 2.png',
-      '/social/Twitter post - 3.png'
+      '/social/item1.mp4',
+      '/social/item2.png',
+      '/social/item3.png',
+      '/social/item4.png'
     ];
 
     const strideMedia: string[] = [
