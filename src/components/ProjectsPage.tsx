@@ -54,7 +54,7 @@ function ProjectsPage() {
           "Whether you're a photographer seeking a storyteller, a musician looking for a visual artist, or a writer hoping to connect with illustrators, the platform uses intelligent matching based on interests, project goals, and creative philosophies. Members can showcase their work through rich portfolios, participate in interest-based groups, and engage in collaborative challenges that spark organic connections. The emphasis is on fostering genuine relationships that lead to meaningful projects rather than transactional interactions."
         ],
         "12 june 2025",
-        ["/social/item1.mp4", "/social/item2.png", "/social/item3.png", "/social/item4.png"]
+        ["/social/icon2.png", "/social/item1.mp4", "/social/item2.png", "/social/item3.png", "/social/item4.png"]
       )}
       {renderProject(
         "stride",

@@ -51,6 +51,7 @@ function Layout() {
   }, [isProjectView]);
   useEffect(() => {
     const socialMedia: string[] = [
+      '/social/icon2.png',
       '/social/item1.mp4',
       '/social/item2.png',
       '/social/item3.png',
