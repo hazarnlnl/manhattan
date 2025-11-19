@@ -4,7 +4,7 @@
   font-weight: 400;
   color-scheme: dark;
   color: #AFAFAF;
-  background-color: #0F0F0F;
+  background-color: #080808;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -34,7 +34,7 @@ body {
   min-height: 100vh;
   height: 100%;
   width: 100%;
-  background-color: #0F0F0F;
+  background-color: #080808;
   overflow-x: hidden; /* prevent right-side overflow */
 }
 
@@ -50,7 +50,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #0F0F0F;
+  background-color: #080808;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -64,13 +64,13 @@ button:focus-visible {
 
 /* Ensure page background stays dark beyond content bounds */
 html, body, #root {
-  background-color: #0F0F0F;
-  background: #0F0F0F;
+  background-color: #080808;
+  background: #080808;
 }
 
 body {
-  background: #0F0F0F !important;
-  background-color: #0F0F0F !important;
+  background: #080808 !important;
+  background-color: #080808 !important;
 }
 
 /* Hide vertical scrollbar globally but keep scrolling */
