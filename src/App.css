@@ -525,10 +525,19 @@ a:hover {
 
 /* Mobile layout: right content at bottom, 20px margins, fill width */
 @media (max-width: 820px) {
+  #root {
+    min-height: 100vh;
+    min-height: 100dvh; /* Use dynamic viewport height for mobile */
+    height: 100vh;
+    height: 100dvh; /* Use dynamic viewport height for mobile */
+  }
+
   .container {
     flex-direction: column;
     padding: 20px;
     gap: 200px; /* wider space between top (left) and bottom (right) sections */
+    min-height: 100vh;
+    min-height: 100dvh; /* Use dynamic viewport height for mobile */
   }
 
   .left-column {
@@ -620,10 +629,15 @@ a:hover {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    min-height: 100vh;
+    min-height: 100dvh; /* Use dynamic viewport height for mobile */
   }
 
   .home-content {
     gap: 24px;
+    min-height: 100vh;
+    min-height: 100dvh; /* Use dynamic viewport height for mobile */
+    justify-content: center;
   }
 
   .home-content p {
