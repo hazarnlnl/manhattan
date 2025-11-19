@@ -179,7 +179,7 @@ h1, p {
 
 /* Project media on projects page - centered */
 .projects-content .project-media {
-  width: 500px;
+  width: clamp(300px, 90vw, 650px);
   height: auto;
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.08);
