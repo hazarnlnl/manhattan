@@ -35,8 +35,6 @@
 .container.home-view {
   justify-content: center;
   align-items: center;
-  position: relative;
-  z-index: 0;
 }
 
 .left-column {
@@ -467,23 +465,9 @@ a:hover {
   color: #AFAFAF !important;
 }
 
-/* Home wrapper - contains fixed text and scrollable images */
-.home-wrapper {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  background-color: #080808;
-  overflow-x: hidden;
-  z-index: 0;
-}
-
-/* Home page content - fixed and centered in viewport, behind images */
+/* Home page content - centered, using left column text style */
 .home-content {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex !important;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -494,47 +478,7 @@ a:hover {
   font-size: 14px;
   line-height: 17px;
   color: #AFAFAF;
-  background-color: transparent;
-  z-index: 1; /* Behind images */
-  pointer-events: none;
-  width: 100%;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-.home-content p {
-  pointer-events: auto;
-  background-color: transparent;
-}
-
-/* Home images - scrollable, positioned above text */
-.home-images {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 24px;
-  width: 100%;
-  padding-top: 85vh; /* Start with first image partially visible */
-  padding-bottom: 100vh; /* End with space so text stays visible */
-  background: none !important;
-  background-color: rgba(8, 8, 8, 0) !important; /* Fully transparent */
-  z-index: 2; /* Above text */
-  pointer-events: none; /* Allow clicks to pass through to text */
-  isolation: isolate; /* Create stacking context for children only */
-}
-
-.home-images .project-media {
-  pointer-events: auto; /* But images themselves are clickable */
-  position: relative;
-  z-index: 2;
-}
-
-.home-images .project-media {
-  pointer-events: auto; /* But images themselves are clickable */
-  position: relative;
-  z-index: 2;
+  background-color: #080808;
 }
 
 /* Projects page content - centered images */
@@ -559,12 +503,11 @@ a:hover {
   line-height: 17px;
   margin: 0;
   width: auto;
-  background-color: transparent;
+  background-color: #080808;
 }
 
 .home-content a,
-.home-content a:visited,
-.home-content .text-link {
+.home-content a:visited {
   font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: #AFAFAF;
@@ -572,40 +515,12 @@ a:hover {
   text-decoration: none;
   transition: transform 0.2s ease;
   display: inline-block;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  font-size: inherit;
-  line-height: inherit;
-  letter-spacing: -0.5px;
-  outline: none !important;
-  -webkit-tap-highlight-color: transparent;
+  background-color: #080808;
 }
 
-.home-content .text-link:focus,
-.home-content .text-link:active,
-.home-content .text-link:focus-visible {
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.home-content a:hover,
-.home-content .text-link:hover {
+.home-content a:hover {
   transform: scale(0.9) !important;
   color: #AFAFAF !important;
-}
-
-/* Project media in home images - no borders */
-.home-images .project-media {
-  width: clamp(300px, 90vw, 650px);
-  height: auto;
-  border-radius: 10px;
-  border: none;
-  display: block;
-  margin: 0;
 }
 
 /* Mobile layout: right content at bottom, 20px margins, fill width */
@@ -720,10 +635,9 @@ a:hover {
 
   .home-content {
     gap: 24px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    min-height: 100vh;
+    min-height: 100dvh; /* Use dynamic viewport height for mobile */
+    justify-content: center;
   }
 
   .home-content p {
@@ -731,13 +645,8 @@ a:hover {
     line-height: 22px;
   }
 
-  .home-content a,
-  .home-content .text-link {
+  .home-content a {
     font-size: 18px;
     line-height: 22px;
-  }
-
-  .home-images .project-media {
-    width: clamp(300px, 90vw, 650px);
   }
 }
