@@ -1,10 +1,7 @@
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function Layout() {
-  const location = useLocation();
-  const isProjectView = location.pathname === '/projects';
-  const isHomeView = location.pathname === '/';
   useEffect(() => {
     const socialMedia: string[] = [
       '/social/icon2.png',
@@ -62,30 +59,7 @@ function Layout() {
   }, []);
 
   return (
-    <div className={`container ${isProjectView ? 'project-view' : ''} ${isHomeView ? 'home-view' : ''}`}>
-      {!isHomeView && (
-      <div className="left-column">
-        <div className="brand">
-          <Link to="/" className="brand-button">{isProjectView ? 'go back' : 'hazar nl'}</Link>
-        </div>
-        {!isProjectView && (
-          <>
-            <div className="projects-section">
-              <p><Link to="/projects">see work</Link> <img src="/icon_link2.svg" alt="link" className="link-icon" /></p>
-            </div>
-
-            <div className="contact-section">
-              <p>feel free to say hi!</p>
-              <p><a href="mailto:hazarnl.garden@gmail.com">mail</a></p>
-              <p><a href="https://www.are.na/hazar-nl/channels" target="_blank" rel="noopener noreferrer">are.na</a></p>
-              <p><a href="https://twitter.com/hazarnlnl" target="_blank" rel="noopener noreferrer">twitter</a></p>
-              <p><a href="https://hazarnlnl.substack.com/" target="_blank" rel="noopener noreferrer">substack</a></p>
-            </div>
-          </>
-        )}
-      </div>
-      )}
-
+    <div className="container home-view">
       <Outlet />
     </div>
   );
