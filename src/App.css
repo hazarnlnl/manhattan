@@ -179,12 +179,18 @@ h1, p {
 
 /* Project media on projects page - centered */
 .projects-content .project-media {
-  width: clamp(300px, 90vw, 650px);
+  width: clamp(300px, 90vw, 580px);
   height: auto;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  border: 1px solid #0E0E0E;
   display: block;
   margin: 0;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.projects-content .project-media:last-child {
+  margin-bottom: 60px;
 }
 
 /* Smaller, borderless app icon when used as first media */
@@ -487,10 +493,36 @@ a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 24px;
+  gap: 72px;
   width: 100%;
   min-height: 100vh;
   padding-top: 50vh;
+  padding-bottom: 20vh;
+  background-color: #080808;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 50vh;
+  scroll-padding-bottom: 50vh;
+}
+
+.projects-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.projects-footer p,
+.projects-footer a,
+.projects-footer a:visited {
+  font-family: 'SF Rounded Pro', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  color: #AFAFAF;
+  opacity: 0.8;
+  text-decoration: none;
   background-color: #080808;
 }
 

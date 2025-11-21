@@ -1,19 +1,13 @@
 function ProjectsPage() {
   // Combine all images from all projects
   const allImages = [
-    "/social/item1.mp4",
-    "/social/item2.png",
-    "/social/item3.png",
-    "/social/item4.png",
-    "/stride/project1_img1.png",
-    "/stride/case_image.png",
-    "/stride/project1_img2.png",
-    "/stride/project1_img3.png",
-    "/stride/project1_img4.png",
-    "/stride/project1_img5.png",
-    "/mode/1.png",
-    "/mode/2.png",
-    "/mode/3.png"
+    "/pic1.mp4",
+    "/pic3.png",
+    "/pic4.png",
+    "/pic5.png",
+    "/pic6.png",
+    "/pic7.png",
+    "/pic9.png"
   ];
 
   return (
@@ -42,6 +36,11 @@ function ProjectsPage() {
           />
         );
       })}
+
+      <div className="projects-footer">
+        <p>spots available for december</p>
+        <p><a href="mailto:hazarnl.garden@gmail.com">contact</a></p>
+      </div>
     </div>
   );
 }
